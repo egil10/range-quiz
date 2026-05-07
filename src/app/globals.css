@@ -1,0 +1,61 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --surface: 9 10 16;
+  --surface-raised: 14 16 26;
+  --ink: 245 247 255;
+  --ink-muted: 150 156 184;
+  --accent: 99 102 241;
+  --accent-dim: 67 71 186;
+  --ok: 52 211 153;
+  --bad: 251 113 133;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--ink) / 1);
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgb(99 102 241 / 0.22), transparent 55%),
+    radial-gradient(900px 700px at 110% 20%, rgb(52 211 153 / 0.12), transparent 55%),
+    rgb(var(--surface) / 1);
+  font-feature-settings: "ss01" on, "cv02" on;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.35);
+}
+
+.glass {
+  background: linear-gradient(
+    145deg,
+    rgb(var(--surface-raised) / 0.78),
+    rgb(var(--surface-raised) / 0.42)
+  );
+  box-shadow: 0 4px 24px -8px rgb(0 0 0 / 0.45);
+}
+
+.mesh-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%23noise%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 5.6s ease-in-out infinite;
+}
